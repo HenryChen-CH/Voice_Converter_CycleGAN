@@ -147,7 +147,7 @@ def train(
                                                                3600, (time_elapsed_epoch % 3600 // 60), (time_elapsed_epoch % 60 // 1)))
 
         if validation_A_dir is not None:
-            if epoch % 50 == 0:
+            if epoch != 0 and epoch % 50 == 0:
                 print('Generating Validation Data B from A...')
                 for file in os.listdir(validation_A_dir):
                     filepath = os.path.join(
@@ -180,7 +180,7 @@ def train(
                                                           os.path.basename(file)), wav_transformed, sampling_rate)
 
         if validation_B_dir is not None:
-            if epoch % 50 == 0:
+            if epoch != 0 and epoch % 50 == 0:
                 print('Generating Validation Data A from B...')
                 for file in os.listdir(validation_B_dir):
                     filepath = os.path.join(
