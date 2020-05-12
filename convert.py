@@ -1,6 +1,7 @@
 import argparse
 import os
 import numpy as np
+import tensorflow as tf
 
 from model import CycleGAN
 from preprocess import *
@@ -82,7 +83,5 @@ if __name__ == '__main__':
     data_dir = argv.data_dir
     conversion_direction = argv.conversion_direction
     output_dir = argv.output_dir
-
+    tf.compat.v1.disable_eager_execution()
     conversion(model_dir = model_dir, model_name = model_name, data_dir = data_dir, conversion_direction = conversion_direction, output_dir = output_dir)
-
-
